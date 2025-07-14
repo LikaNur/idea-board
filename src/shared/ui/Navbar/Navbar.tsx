@@ -1,6 +1,6 @@
 import { AddIcon, IdeaLogo, SortIcon } from "@shared/icons";
 
-export default function Navbar() {
+export default function Navbar({ onClick }: { onClick: () => void }) {
   return (
     <nav className="flex items-stretch justify-between bg-white/10 backdrop-blur-sm backdrop-opacity-0 h-20 text-white px-4 rounded-b-xl">
       <a href="/" className="flex items-center gap-2 pointer">
@@ -13,6 +13,7 @@ export default function Navbar() {
         <button
           aria-label="Create idea"
           className="flex items-center gap-2 p-2 rounded-xl border border-white hover:bg-white/10 transition text-sm md:text-base"
+          onClick={onClick}
         >
           <span className="hidden sm:inline">New Idea</span>
           <AddIcon className="w-5 h-5 md:w-6 md:h-6" />
