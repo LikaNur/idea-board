@@ -1,11 +1,12 @@
+import { Layout } from "@shared/ui/Layout";
 
 function App() {
-
   return (
     <>
-     <h1>This is idea board</h1>
+      <Layout>
+      </Layout>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
