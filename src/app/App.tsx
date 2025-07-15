@@ -2,7 +2,7 @@ import { Layout } from "@shared/ui/Layout";
 
 function App() {
   return (
-    <div className="min-h-screen bg-idea-gradient ">
+    <div className="min-h-screen bg-idea-gradient">
       <Layout> 
       </Layout>
     </div>

@@ -4,6 +4,6 @@ export default interface IdeaCardProps {
   description: string;
   createdAt: Date;
   updatedAt: Date;
-  onEdit: (id: string) => void;
+  onEdit: (id: string, updated: { title: string; description: string }) => void;
   onDelete: (id: string) => void;
 }
