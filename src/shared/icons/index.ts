@@ -4,3 +4,4 @@ export { SortIcon } from "./SortIdea";
 export { LinkedInLogo } from "./LinkedInLogo";
 export { GitHubLogo } from "./GitHubLogo";
 export { EmailLogo } from "./EmailLogo";
+export { CancelIdea } from "./CancelIdea";

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 #root {
-  font-family: "Inter Tight", sans-serif;
+  font-family: "Lato", sans-serif;
   color: white;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -18,3 +18,4 @@ body {
   margin: 0;
   padding: 0;
 }
+

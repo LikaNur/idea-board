@@ -2,8 +2,8 @@ import { AddIcon, IdeaLogo, SortIcon } from "@shared/icons";
 
 export default function Navbar({ onClick }: { onClick: () => void }) {
   return (
-    <nav className="flex items-stretch justify-between bg-white/10 backdrop-blur-sm backdrop-opacity-0 h-20 text-white px-4 rounded-b-xl">
-      <a href="/" className="flex items-center gap-2 pointer">
+    <nav className="flex items-stretch justify-between bg-white/10 backdrop-blur-sm backdrop-opacity-0 h-[90px] text-white px-4">
+      <a href="/" className="flex items-center pointer">
         <IdeaLogo className="w-6 h-6 md:w-8 md:h-8" />
         <h1 className="text-md font-bold tracking-wider md:text-xl">
           IdeaBoard

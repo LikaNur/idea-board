@@ -1,7 +1,7 @@
 export const IdeaLogo = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 32 32"
+    viewBox="0 0 40 32"
     fill="currentColor"
     className={className || "w-6 h-6"}
   >
