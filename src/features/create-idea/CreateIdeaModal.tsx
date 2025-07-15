@@ -1,4 +1,5 @@
 import { CancelIdea } from "@shared/icons";
+import { useState } from "react";
 
 export const CreateIdeaModal = ({
   onClose,
@@ -7,8 +8,33 @@ export const CreateIdeaModal = ({
   onClose: () => void;
   modalRef: React.RefObject<HTMLDivElement>;
 }) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [errors, setErrors] = useState<{
+    title?: string;
+    description?: string;
+  }>({});
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const newError: { title?: string; description?: string } = {};
+
+    if (!title.trim()) {
+      newError.title = "Title is required";
+    }
+    if (!description.trim()) {
+      newError.description = "Description is required";
+    } else if (description.length > 140) {
+      newError.description = "Description must be 140 characters or less";
+    }
+    if (Object.keys(newError).length > 0) {
+      setErrors(newError);
+      return;
+    }
+  };
+
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40">
       <div
         className="bg-[#F7F7F8] p-8 rounded-lg shadow-lg w-full max-w-sm md:max-w-xl"
         ref={modalRef}
@@ -25,7 +51,7 @@ export const CreateIdeaModal = ({
             <CancelIdea className="w-6 h-6" />
           </button>
         </div>
-        <form>
+        <form method="POST" onSubmit={handleFormSubmit}>
           <div className="mb-8">
             <label
               className="block text-md  text-black font-semibold mb-2"
@@ -37,12 +63,18 @@ export const CreateIdeaModal = ({
               Name your idea
             </span>
             <input
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               type="text"
               id="ideaTitle"
-              className="w-full p-3 border border-gray-300 rounded-lg text-black text-sm bg-white hover:border-gray-400 focus:outline-none focus:ring-0 focus:ring-gray-400 transition "
+              className={`w-full p-3 border rounded-lg text-sm bg-white text-black hover:border-gray-400 focus:outline-none focus:ring-0 focus:ring-gray-400 transition ${
+                errors.title ? "border-red-600" : "border-gray-300"
+              }`}
               placeholder="Enter idea title"
-              required
             />
+            {errors.title && (
+              <span className="text-red-600 text-xs">{errors.title}</span>
+            )}
           </div>
           <div className="mb-8">
             <label
@@ -52,20 +84,33 @@ export const CreateIdeaModal = ({
               Description*
             </label>
             <span className="text-sm text-gray-500 mb-2 block">
-              Make it short and sweet (140 characters max)
+              Make it short and sweet
             </span>
             <textarea
+              value={description}
+              onChange={(e) => {
+                e.target.style.height = "auto";
+                e.target.style.height = `${e.target.scrollHeight}px`;
+                setDescription(e.target.value);
+              }}
               maxLength={140}
               id="ideaDescription"
-              className="w-full p-3 border border-gray-300 rounded-lg text-sm bg-white text-black  hover:border-gray-400 focus:outline-none focus:ring-0 focus:ring-gray-400 transition"
+              className={`w-full p-3 border rounded-lg text-sm bg-white text-black hover:border-gray-400 focus:outline-none focus:ring-0 focus:ring-gray-400 transition ${
+                errors.description ? "border-red-600" : "border-gray-300"
+              }`}
               placeholder="Enter idea description"
-              onError={(e) => {
-                e.currentTarget.style.height = "auto";
-                e.currentTarget.style.height = `${e.currentTarget.scrollHeight}px`;
-              }}
               rows={3}
-              required
-            ></textarea>
+            />
+            <div className="flex justify-between items-center">
+              {errors.description && (
+                <span className="text-red-600 text-xs">
+                  {errors.description}
+                </span>
+              )}
+              <div className="text-black text-xs">
+                {140 - description.length} characters left
+              </div>
+            </div>
           </div>
           <button
             type="submit"
