@@ -1,5 +1,7 @@
+import { saveIdea } from "@entities/index";
 import { CancelIdea } from "@shared/icons";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export const CreateIdeaModal = ({
   onClose,
@@ -31,6 +33,21 @@ export const CreateIdeaModal = ({
       setErrors(newError);
       return;
     }
+
+    const newIdea = {
+      id: uuidv4(),
+      title: title.trim(),
+      description: description.trim(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+
+    saveIdea(newIdea);
+
+    setTitle("");
+    setDescription("");
+    setErrors({});
+    onClose();
   };
 
   return (
@@ -39,7 +56,7 @@ export const CreateIdeaModal = ({
         className="bg-[#F7F7F8] p-8 rounded-lg shadow-lg w-full max-w-sm md:max-w-xl"
         ref={modalRef}
       >
-        <div className="flex justify-between mb-6">
+        <div className="flex justify-between mb-4">
           <h2 className="text-xl font-bold  text-black">Create New Idea</h2>
 
           <button
@@ -47,7 +64,6 @@ export const CreateIdeaModal = ({
             aria-label="Close button"
             className="hover:bg-gray-200 p-2 rounded-3xl"
           >
-            {" "}
             <CancelIdea className="w-6 h-6" />
           </button>
         </div>
