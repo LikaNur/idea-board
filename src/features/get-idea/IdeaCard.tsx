@@ -1,6 +1,7 @@
 import { EditIdea } from "@shared/icons";
 import type IdeaCardProps from "./IdeaCardTypes";
 import DeleteIdea from "@shared/icons/DeleteIcon";
+import { format } from "date-fns";
 
 export const IdeaCard = ({
   id,
@@ -30,10 +31,10 @@ export const IdeaCard = ({
       <p className="text-sm text-wrap overflow-hidden text-clip">
         {description}
       </p>
-      <div className="text-xs text-gray-300">
-        <p>Created: {createdAt.toLocaleDateString()}</p>
+      <div className="text-xs text-gray-300 pt-8">
+        <p>Created: {format(createdAt, "MMM dd, yyyy")}</p>
         {updatedAt.getTime() !== createdAt.getTime() && (
-          <p>Updated: {updatedAt.toLocaleDateString()}</p>
+          <p>Updated: {format(updatedAt, "MMM dd, yyyy")}</p>
         )}
       </div>
     </div>
