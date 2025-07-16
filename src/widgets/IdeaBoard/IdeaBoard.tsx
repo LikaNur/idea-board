@@ -40,9 +40,9 @@ export const IdeaBoard = () => {
   };
 
   return (
-    <div className="max-w-full mt-24 px-10 md:px-40 lg:px-52">
+    <div className="max-w-full mt-60 md:mt-24 px-10 md:px-40 lg:px-52">
       {ideas.length === 0 ? (
-        <div className="text-center mt-60">
+        <div className="text-center md:mt-60">
           <h2 className="text-xl md:text-3xl font-bold">
             The journey of a thousand ideas begins with the first...
           </h2>

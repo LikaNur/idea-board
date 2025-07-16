@@ -54,7 +54,7 @@ export const CreateIdeaModal = ({
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40">
+    <div className="fixed inset-0 flex p-4 items-center justify-center bg-black bg-opacity-40">
       <div
         className="bg-[#F7F7F8] p-8 rounded-lg shadow-lg w-full max-w-sm md:max-w-xl"
         ref={modalRef}
