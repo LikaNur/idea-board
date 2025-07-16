@@ -9,6 +9,8 @@ createRoot(document.getElementById("root")!).render(
     <SnackbarProvider
       maxSnack={4}
       anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      autoHideDuration={1000}
+      preventDuplicate
     >
       <App />
     </SnackbarProvider>

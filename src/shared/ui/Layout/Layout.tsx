@@ -3,9 +3,12 @@ import { Footer } from "../Footer";
 import { Navbar } from "../Navbar";
 import { CreateIdeaModal } from "@features/create-idea";
 import { IdeaBoardPage } from "pages/IdeaBoardPage";
+import type { SortMethod } from "@features/sort-idea";
 
 export default function Layout() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [sortMethod, setSortMethod] = useState<SortMethod>("createdAt-desc");
+
   const modalRef = useRef<HTMLDivElement>(
     null
   ) as React.RefObject<HTMLDivElement>;
@@ -28,9 +31,12 @@ export default function Layout() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar onClick={() => setIsModalOpen(true)} />
+      <Navbar
+        onClick={() => setIsModalOpen(true)}
+        onSortChange={setSortMethod}
+      />
       <main className="flex-1 p-4">
-        <IdeaBoardPage />
+        <IdeaBoardPage sortMethod={sortMethod} />
 
         {isModalOpen && (
           <CreateIdeaModal
