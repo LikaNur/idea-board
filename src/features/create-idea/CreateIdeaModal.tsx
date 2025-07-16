@@ -2,6 +2,7 @@ import { saveIdea } from "@entities/index";
 import { CancelIdea } from "@shared/icons";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { useSnackbar } from "notistack";
 
 export const CreateIdeaModal = ({
   onClose,
@@ -10,6 +11,7 @@ export const CreateIdeaModal = ({
   onClose: () => void;
   modalRef: React.RefObject<HTMLDivElement>;
 }) => {
+  const { enqueueSnackbar } = useSnackbar();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState<{
@@ -43,6 +45,7 @@ export const CreateIdeaModal = ({
     };
 
     saveIdea(newIdea);
+    enqueueSnackbar("Idea created successfully!", { variant: "success" });
 
     setTitle("");
     setDescription("");

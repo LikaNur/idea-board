@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { getIdeas, type Idea } from "@entities/index";
 import { IdeaCard } from "@features/get-idea";
+import { useSnackbar } from "notistack";
+
 export const IdeaBoard = () => {
+  const { enqueueSnackbar } = useSnackbar();
   const [ideas, setIdeas] = useState<Idea[]>([]);
 
   useEffect(() => {
@@ -13,6 +16,7 @@ export const IdeaBoard = () => {
     const updated = ideas.filter((idea) => idea.id !== id);
     setIdeas(updated);
     localStorage.setItem("ideas", JSON.stringify(updated));
+    enqueueSnackbar("Idea deleted", { variant: "warning" });
   };
 
   const handleEdit = (
@@ -30,6 +34,7 @@ export const IdeaBoard = () => {
     );
 
     setIdeas(updatedIdeas);
+    enqueueSnackbar("Idea updated successfully!", { variant: "success" });
 
     localStorage.setItem("ideas", JSON.stringify(updatedIdeas));
   };

@@ -5,5 +5,5 @@ export { LinkedInLogo } from "./LinkedInLogo";
 export { GitHubLogo } from "./GitHubLogo";
 export { EmailLogo } from "./EmailLogo";
 export { CancelIdea } from "./CancelIdea";
-export { EditIdea } from "./EditIcon";
+export { EditIdeaIcon } from "./EditIcon";
 export { DeleteIdea } from "./DeleteIcon";
