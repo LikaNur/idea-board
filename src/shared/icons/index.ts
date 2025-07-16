@@ -1,9 +1,9 @@
-export { AddIcon } from "./AddIdea";
+export { AddIcon } from "./AddIcon";
 export { IdeaLogo } from "./IdeaLogo";
 export { SortIcon } from "./SortIdea";
 export { LinkedInLogo } from "./LinkedInLogo";
 export { GitHubLogo } from "./GitHubLogo";
 export { EmailLogo } from "./EmailLogo";
-export { CancelIdea } from "./CancelIdea";
-export { EditIdeaIcon } from "./EditIcon";
-export { DeleteIdea } from "./DeleteIcon";
+export { CancelIcon } from "./CancelIcon";
+export { EditIcon } from "./EditIcon";
+export { DeleteIcon } from "./DeleteIcon";

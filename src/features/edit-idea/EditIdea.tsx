@@ -31,11 +31,9 @@ export const EditIdea = ({
         className="text-sm text-black px-2 py-1 rounded w-full"
         rows={5}
       />
-
       <p className="text-text text-xs">
         {maxLength - description.length} characters left
       </p>
-
       <div className="flex justify-end gap-2">
         <button
           onClick={onCancel}

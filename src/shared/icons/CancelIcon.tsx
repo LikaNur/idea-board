@@ -1,4 +1,4 @@
-export const CancelIdea = ({ className }: { className?: string }) => (
+export const CancelIcon = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 40 32"
@@ -31,4 +31,4 @@ export const CancelIdea = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default CancelIdea;
+export default CancelIcon;

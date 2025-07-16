@@ -1,4 +1,4 @@
-export const EditIdeaIcon = ({ className }: { className?: string }) => (
+export const EditIcon = ({ className }: { className?: string }) => (
   <svg
     viewBox="0 0 28 24"
     fill="none"
@@ -31,4 +31,4 @@ export const EditIdeaIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default EditIdeaIcon;
+export default EditIcon;

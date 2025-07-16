@@ -1,16 +1,11 @@
 import { saveIdea } from "@entities/index";
-import { CancelIdea } from "@shared/icons";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useSnackbar } from "notistack";
+import type { CreateIdeaProps } from "./CreateIdeaTypes";
+import { CancelIcon } from "@shared/icons";
 
-export const CreateIdeaModal = ({
-  onClose,
-  modalRef,
-}: {
-  onClose: () => void;
-  modalRef: React.RefObject<HTMLDivElement>;
-}) => {
+export const CreateIdeaModal = ({ onClose, modalRef }: CreateIdeaProps) => {
   const { enqueueSnackbar } = useSnackbar();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -66,7 +61,7 @@ export const CreateIdeaModal = ({
             aria-label="Close button"
             className="hover:bg-gray-200 p-2 rounded-3xl"
           >
-            <CancelIdea className="w-6 h-6" />
+            <CancelIcon className="w-6 h-6" />
           </button>
         </div>
         <form method="POST" onSubmit={handleFormSubmit}>

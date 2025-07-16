@@ -1,4 +1,4 @@
-export const DeleteIdea = ({ className }: { className?: string }) => (
+export const DeleteIcon = ({ className }: { className?: string }) => (
   <svg
     width="111px"
     height="111px"
@@ -55,4 +55,4 @@ export const DeleteIdea = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default DeleteIdea;
+export default DeleteIcon;

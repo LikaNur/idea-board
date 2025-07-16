@@ -1,9 +1,8 @@
 import { useState } from "react";
-import DeleteIdea from "@shared/icons/DeleteIcon";
 import { format } from "date-fns";
 import type IdeaCardProps from "./IdeaCardTypes";
+import { DeleteIcon, EditIcon } from "@shared/icons";
 import { EditIdea } from "@features/edit-idea";
-import EditIdeaIcon from "@shared/icons/EditIcon";
 
 export const IdeaCard = ({
   id,
@@ -49,13 +48,13 @@ export const IdeaCard = ({
               <button
                 onClick={() => (isEditing ? handleSave() : setIsEditing(true))}
               >
-                <EditIdeaIcon />
+                <EditIcon />
               </button>
               <button
                 onClick={() => onDelete(id)}
                 className="bg-[#ED5E69] rounded-lg"
               >
-                <DeleteIdea />
+                <DeleteIcon />
               </button>
             </div>
           </div>
@@ -64,7 +63,6 @@ export const IdeaCard = ({
           </p>
         </>
       )}
-
       <div className="text-xs text-gray-300 pt-8">
         {updatedAt.getTime() !== createdAt.getTime() ? (
           <p>Updated: {format(updatedAt, "MMM dd, yyyy")}</p>
