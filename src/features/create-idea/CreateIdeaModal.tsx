@@ -61,7 +61,6 @@ export const CreateIdeaModal = ({
       >
         <div className="flex justify-between mb-4">
           <h2 className="text-xl font-bold  text-black">Create New Idea</h2>
-
           <button
             onClick={onClose}
             aria-label="Close button"
@@ -89,6 +88,7 @@ export const CreateIdeaModal = ({
               className={`w-full p-3 border rounded-lg text-sm bg-white text-black hover:border-gray-400 focus:outline-none focus:ring-0 focus:ring-gray-400 transition ${
                 errors.title ? "border-red-600" : "border-gray-300"
               }`}
+              autoFocus
               placeholder="Enter idea title"
             />
             {errors.title && (
