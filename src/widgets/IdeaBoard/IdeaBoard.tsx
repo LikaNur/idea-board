@@ -44,8 +44,8 @@ export const IdeaBoard = ({ sortMethod }: { sortMethod: SortMethod }) => {
   return (
     <div className="max-w-full md:mt-24 px-10 md:px-40 lg:px-52">
       {ideas.length === 0 ? (
-        <div className="text-center md:mt-60">
-          <h2 className="text-xl md:text-3xl font-bold mt-60">
+        <div className="text-center md:mt-52">
+          <h2 className="text-xl md:text-3xl font-bold mt-32">
             The journey of a thousand ideas begins with the first...
           </h2>
           <p className="text-md text-gray-300 md:text-xl mt-10">
