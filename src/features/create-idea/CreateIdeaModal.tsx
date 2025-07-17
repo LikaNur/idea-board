@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useSnackbar } from "notistack";
 import type { CreateIdeaProps } from "./CreateIdeaTypes";
 import { CancelIcon } from "@shared/icons";
-import { Button } from "@shared/ui";
+import { Button, Textarea } from "@shared/ui";
 
 export const CreateIdeaModal = ({ onClose, modalRef }: CreateIdeaProps) => {
   const { enqueueSnackbar } = useSnackbar();
@@ -62,6 +62,7 @@ export const CreateIdeaModal = ({ onClose, modalRef }: CreateIdeaProps) => {
             aria-label="Close button"
             onClick={onClose}
             variant="circle"
+            className="p-2"
           >
             <CancelIcon />
           </Button>
@@ -102,20 +103,14 @@ export const CreateIdeaModal = ({ onClose, modalRef }: CreateIdeaProps) => {
             <span className="text-sm text-gray-500 mb-2 block">
               Make it short and sweet
             </span>
-            <textarea
-              value={description}
-              onChange={(e) => {
-                e.target.style.height = "auto";
-                e.target.style.height = `${e.target.scrollHeight}px`;
-                setDescription(e.target.value);
-              }}
-              maxLength={140}
+            <Textarea
               id="ideaDescription"
-              className={`w-full p-3 border rounded-lg text-sm bg-white text-black hover:border-gray-400 focus:outline-none focus:ring-0 focus:ring-gray-400 transition ${
-                errors.description ? "border-red-600" : "border-gray-300"
-              }`}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              maxLength={140}
               placeholder="Enter idea description"
               rows={3}
+              autoResize
             />
             <div className="flex justify-between items-center">
               {errors.description && (

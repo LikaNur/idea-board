@@ -56,7 +56,7 @@ export const IdeaCard = ({
               <Button
                 aria-label="Delete button"
                 onClick={() => onDelete(id)}
-                className="bg-[#D3302F] rounded-lg hover:bg-[#f46f7a] "
+                className="bg-[#D3302F] rounded-lg p-1 hover:bg-[#de525e] "
               >
                 <DeleteIcon />
               </Button>

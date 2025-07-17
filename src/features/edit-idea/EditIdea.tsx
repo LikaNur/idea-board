@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { EditIdeaProps } from "./EditIdeaTypes";
-import { Button } from "@shared/ui";
+import { Button, Textarea } from "@shared/ui";
 
 export const EditIdea = ({
   initialTitle,
@@ -24,13 +24,14 @@ export const EditIdea = ({
         onChange={(e) => setTitle(e.target.value)}
         className="text-lg font-bold text-black px-2 py-1 rounded w-full"
       />
-
-      <textarea
+      <Textarea
+        id="editIdeaDescription"
         value={description}
-        maxLength={maxLength}
         onChange={(e) => setDescription(e.target.value)}
-        className="text-sm text-black px-2 py-1 rounded w-full"
+        maxLength={140}
+        placeholder="Edit idea description"
         rows={5}
+        autoResize
       />
       <p className="text-text text-xs">
         {maxLength - description.length} characters left

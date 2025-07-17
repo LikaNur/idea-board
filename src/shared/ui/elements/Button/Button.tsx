@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { ButtonProps } from "./types";
+import type { ButtonProps } from "./ButtonTypes";
 
 export const Button = ({
   children,
@@ -16,7 +16,7 @@ export const Button = ({
     success: "bg-green-600 rounded-md p-2 text-sm hover:bg-green-700",
     danger: "bg-red-600 rounded-md hover:bg-red-700",
     gray: "bg-gray-500 rounded-md px-4 p-2 text-sm hover:bg-gray-600",
-    circle: "hover:bg-gray-200 rounded-3xl p-2",
+    circle: "hover:bg-gray-200 rounded-3xl",
   };
 
   return (
