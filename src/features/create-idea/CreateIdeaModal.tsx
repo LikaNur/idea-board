@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useSnackbar } from "notistack";
 import type { CreateIdeaProps } from "./CreateIdeaTypes";
 import { CancelIcon } from "@shared/icons";
+import { Button } from "@shared/ui";
 
 export const CreateIdeaModal = ({ onClose, modalRef }: CreateIdeaProps) => {
   const { enqueueSnackbar } = useSnackbar();
@@ -56,13 +57,14 @@ export const CreateIdeaModal = ({ onClose, modalRef }: CreateIdeaProps) => {
       >
         <div className="flex justify-between mb-4">
           <h2 className="text-xl font-bold  text-black">Create New Idea</h2>
-          <button
-            onClick={onClose}
+          <Button
+            type="reset"
             aria-label="Close button"
-            className="hover:bg-gray-200 p-2 rounded-3xl"
+            onClick={onClose}
+            variant="circle"
           >
-            <CancelIcon className="w-6 h-6" />
-          </button>
+            <CancelIcon />
+          </Button>
         </div>
         <form method="POST" onSubmit={handleFormSubmit}>
           <div className="mb-8">
@@ -126,12 +128,9 @@ export const CreateIdeaModal = ({ onClose, modalRef }: CreateIdeaProps) => {
               </div>
             </div>
           </div>
-          <button
-            type="submit"
-            className="bg-[#0D81A3] text-white py-3 px-4 rounded-lg hover:bg-[#66AEC5] transition"
-          >
+          <Button type="submit" variant="primary" aria-label="Submit button">
             Submit Idea
-          </button>
+          </Button>
         </form>
       </div>
     </div>

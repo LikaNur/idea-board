@@ -1,10 +1,9 @@
-import { Layout } from "@shared/ui/Layout";
+import { Layout } from "@shared/ui";
 
 function App() {
   return (
     <div className="min-h-screen bg-idea-gradient">
-      <Layout> 
-      </Layout>
+      <Layout></Layout>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { EditIdeaProps } from "./EditIdeaTypes";
+import { Button } from "@shared/ui";
 
 export const EditIdea = ({
   initialTitle,
@@ -35,19 +36,16 @@ export const EditIdea = ({
         {maxLength - description.length} characters left
       </p>
       <div className="flex justify-end gap-2">
-        <button
-          onClick={onCancel}
-          className="text-sm px-2 py-1 bg-gray-500 rounded"
-        >
+        <Button aria-label="Cancel button" variant="gray" onClick={onCancel}>
           Cancel
-        </button>
-        <button
+        </Button>
+        <Button
+          aria-label="Save button"
+          variant="success"
           onClick={handleSubmit}
-          className="text-sm px-2 py-1 bg-green-600 rounded"
-          disabled={title.trim() === ""}
         >
           Save
-        </button>
+        </Button>
       </div>
     </>
   );

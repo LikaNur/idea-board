@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import type IdeaCardProps from "./IdeaCardTypes";
 import { DeleteIcon, EditIcon } from "@shared/icons";
 import { EditIdea } from "@features/edit-idea";
+import { Button } from "@shared/ui";
 
 export const IdeaCard = ({
   id,
@@ -45,17 +46,20 @@ export const IdeaCard = ({
           <div className="flex justify-between items-center">
             <h2 className="text-lg font-bold pr-2">{title}</h2>
             <div className="flex gap-1 pl-2">
-              <button
+              <Button
+                aria-label="Edit button"
+                className="hover:bg-inherit"
                 onClick={() => (isEditing ? handleSave() : setIsEditing(true))}
               >
                 <EditIcon />
-              </button>
-              <button
+              </Button>
+              <Button
+                aria-label="Delete button"
                 onClick={() => onDelete(id)}
-                className="bg-[#ED5E69] rounded-lg"
+                className="bg-[#D3302F] rounded-lg hover:bg-[#f46f7a] "
               >
                 <DeleteIcon />
-              </button>
+              </Button>
             </div>
           </div>
           <p className="text-sm text-wrap overflow-hidden text-clip pt-2">

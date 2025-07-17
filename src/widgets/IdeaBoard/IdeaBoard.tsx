@@ -18,7 +18,7 @@ export const IdeaBoard = ({ sortMethod }: { sortMethod: SortMethod }) => {
     const updated = ideas.filter((idea) => idea.id !== id);
     setIdeas(updated);
     localStorage.setItem("ideas", JSON.stringify(updated));
-    enqueueSnackbar("Idea deleted", { variant: "warning" });
+    enqueueSnackbar("Idea deleted", { variant: "error" });
   };
 
   const handleEdit = (
