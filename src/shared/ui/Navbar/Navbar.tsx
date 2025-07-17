@@ -42,7 +42,7 @@ export default function Navbar({
         </Button>
 
         {showDropdown && (
-          <ul className="absolute top-[70px] mr-3 md:mx-0 md:right-32 bg-white text-black shadow-md rounded-md text-xs md:text-sm min-w-6 md:min-w-[120px]">
+          <ul className="absolute top-[70px] mr-3 md:mx-0 md:right-28 bg-white text-black shadow-md rounded-md text-xs md:text-sm min-w-6 md:min-w-[120px]">
             <li
               className="hover:bg-gray-100 px-4 py-2 cursor-pointer rounded-md"
               onClick={() => {

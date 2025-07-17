@@ -9,6 +9,7 @@ export const Textarea = ({
   autoResize = false,
   className,
   onChange,
+  counterClassName,
   ...props
 }: TextareaProps) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -39,14 +40,26 @@ export const Textarea = ({
           onChange?.(e);
         }}
         className={clsx(
-          "w-full px-3 py-2 border rounded-lg text-sm bg-white text-black focus:outline-none transition resize-none",
-          error ? "border-red-600" : "border-gray-300 hover:border-gray-400",
+          "w-full px-3 py-2 border rounded-lg text-sm bg-white text-black focus:outline-none transition resize-none hover:border-gray-400 focus:ring-gray-400",
+          error ? "border-red-600" : "border-gray-300 ",
           className
         )}
         {...props}
       />
+      <div className="flex justify-between items-center">
+        {error ? <p className="text-xs text-red-600">{error}</p> : <span />}
 
-      {error && <p className="text-xs text-red-600">{error}</p>}
+        {typeof value === "string" && props.maxLength && (
+          <p
+            className={clsx(
+              "text-xs text-gray-500 text-right",
+              counterClassName
+            )}
+          >
+            {props.maxLength - value.length} characters left
+          </p>
+        )}
+      </div>
     </div>
   );
 };
