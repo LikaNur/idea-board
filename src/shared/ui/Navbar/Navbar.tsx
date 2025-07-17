@@ -37,8 +37,8 @@ export default function Navbar({
           variant="outline"
           onClick={() => setShowDropdown(!showDropdown)}
         >
-          <SortIcon className="w-5 h-5 md:w-6 md:h-6" />
-          <span className="hidden sm:inline text-sm">Sort</span>
+          <SortIcon className="w-5 h-5 md:w-5 md:h-6" />
+          <span className="hidden sm:inline text-sm md:pl-1">Sort</span>
         </Button>
 
         {showDropdown && (
