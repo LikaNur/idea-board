@@ -20,7 +20,7 @@ body {
 }
 
 main {
-  background-image: url("bg-hero.png");
+  background-image: url("/public/bg-hero.png");
   background-size: 590px auto;
   background-repeat: no-repeat;
   background-position: center;
