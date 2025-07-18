@@ -1,45 +1,19 @@
-import { useEffect, useState } from "react";
-import { getIdeas, type Idea } from "@entities/index";
+import { type Idea } from "@entities/index";
 import { IdeaCard } from "@features/get-idea";
-import { useSnackbar } from "notistack";
 import { sortIdeas, type SortMethod } from "@features/sort-idea";
 
-export const IdeaBoard = ({ sortMethod }: { sortMethod: SortMethod }) => {
-  const { enqueueSnackbar } = useSnackbar();
-  const [ideas, setIdeas] = useState<Idea[]>([]);
+export const IdeaBoard = ({
+  sortMethod,
+  ideas,
+  onEdit,
+  onDelete,
+}: {
+  sortMethod: SortMethod;
+  ideas: Idea[];
+  onEdit: (id: string, updated: { title: string; description: string }) => void;
+  onDelete: (id: string) => void;
+}) => {
   const sortedIdeas = sortIdeas(ideas, sortMethod);
-
-  useEffect(() => {
-    const storedIdeas = getIdeas();
-    setIdeas(storedIdeas);
-  }, []);
-
-  const handleDelete = (id: string) => {
-    const updated = ideas.filter((idea) => idea.id !== id);
-    setIdeas(updated);
-    localStorage.setItem("ideas", JSON.stringify(updated));
-    enqueueSnackbar("Idea deleted", { variant: "error" });
-  };
-
-  const handleEdit = (
-    id: string,
-    updated: { title: string; description: string }
-  ) => {
-    const updatedIdeas = ideas.map((idea) =>
-      idea.id === id
-        ? {
-            ...idea,
-            ...updated,
-            updatedAt: new Date(),
-          }
-        : idea
-    );
-
-    setIdeas(updatedIdeas);
-    enqueueSnackbar("Idea updated successfully!", { variant: "success" });
-
-    localStorage.setItem("ideas", JSON.stringify(updatedIdeas));
-  };
 
   return (
     <div className="max-w-full md:mt-24 px-10 md:px-40 lg:px-52">
@@ -62,8 +36,8 @@ export const IdeaBoard = ({ sortMethod }: { sortMethod: SortMethod }) => {
               description={idea.description}
               createdAt={new Date(idea.createdAt)}
               updatedAt={new Date(idea.updatedAt)}
-              onEdit={handleEdit}
-              onDelete={handleDelete}
+              onEdit={onEdit}
+              onDelete={onDelete}
             />
           ))}
         </div>

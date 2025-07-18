@@ -6,7 +6,11 @@ import type { CreateIdeaProps } from "./CreateIdeaTypes";
 import { CancelIcon } from "@shared/icons";
 import { Button, Input, Textarea } from "@shared/ui";
 
-export const CreateIdeaModal = ({ onClose, modalRef }: CreateIdeaProps) => {
+export const CreateIdeaModal = ({
+  onClose,
+  modalRef,
+  onAddIdea,
+}: CreateIdeaProps) => {
   const { enqueueSnackbar } = useSnackbar();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -41,6 +45,7 @@ export const CreateIdeaModal = ({ onClose, modalRef }: CreateIdeaProps) => {
     };
 
     saveIdea(newIdea);
+    onAddIdea(newIdea);
     enqueueSnackbar("Idea created successfully!", { variant: "success" });
 
     setTitle("");

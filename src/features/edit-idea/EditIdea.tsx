@@ -33,7 +33,7 @@ export const EditIdea = ({
         onChange={(e) => setDescription(e.target.value)}
         maxLength={140}
         className="focus:border-1 focus:border-black"
-        counterClassName="text-gray-200"
+        counterClassName="!text-gray-200"
         placeholder="Edit idea description"
         rows={5}
         autoResize
