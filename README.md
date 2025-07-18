@@ -2,6 +2,8 @@
 
 A minimal idea board app built with **React**, **TypeScript**, and **Vite**, where users can create, edit, delete, and sort ideas. The app features inline editing, character limits, and localStorage-based persistence.
 
+<img width="668" height="374" alt="representation" src="https://github.com/user-attachments/assets/4f2239ab-43c3-4620-afab-e6c82594f1eb" />
+
 ---
 
 ## 🚀 Features
