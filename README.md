@@ -8,7 +8,7 @@ A minimal idea board app built with **React**, **TypeScript**, and **Vite**, whe
 
 - Create new ideas via modal
 - Inline editing for title and description
-- Delete ideas 
+- Delete ideas
 - Sort ideas by:
   - Creation date
   - Title (A–Z / Z–A)
@@ -46,7 +46,6 @@ git clone https://github.com/LikaNur/idea-board
 cd idea-board
 Install dependencies
 
-
 npm install
 Run the dev server
 
@@ -56,6 +55,8 @@ Visit
 ---
 
 ## 🌐 Live Demo
+
+👉 [https://LikaNur.github.io/idea-board]
 
 ---
 
