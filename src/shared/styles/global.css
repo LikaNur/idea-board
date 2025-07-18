@@ -19,3 +19,16 @@ body {
   padding: 0;
 }
 
+main {
+  background-image: url("bg-hero.png");
+  background-size: 590px auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media (max-width: 768px) {
+  main {
+    background-size: 130vw auto;
+    background-position: center;
+  }
+}
