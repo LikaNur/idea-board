@@ -1,18 +1,13 @@
-import { type Idea } from "@entities/index";
 import { IdeaCard } from "@features/get-idea";
-import { sortIdeas, type SortMethod } from "@features/sort-idea";
+import { sortIdeas } from "@features/sort-idea";
+import type { IdeaBoardProps } from "./IdeaBoardTypes";
 
 export const IdeaBoard = ({
   sortMethod,
   ideas,
   onEdit,
   onDelete,
-}: {
-  sortMethod: SortMethod;
-  ideas: Idea[];
-  onEdit: (id: string, updated: { title: string; description: string }) => void;
-  onDelete: (id: string) => void;
-}) => {
+}: IdeaBoardProps) => {
   const sortedIdeas = sortIdeas(ideas, sortMethod);
 
   return (
