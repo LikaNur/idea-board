@@ -56,7 +56,7 @@ Visit
 
 ## 🌐 Live Demo
 
-👉 [https://LikaNur.github.io/idea-board]
+👉 [https://LikaNur.github.io/idea-board](https://LikaNur.github.io/idea-board)
 
 ---
 
