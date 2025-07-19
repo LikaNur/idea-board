@@ -42,3 +42,4 @@ export const IdeaBoard = ({
 };
 
 export default IdeaBoard;
+

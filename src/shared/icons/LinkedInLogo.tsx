@@ -9,11 +9,11 @@ export const LinkedInLogo = ({ className }: { className?: string }) => (
     className={className || "w-6 h-6"}
     viewBox="0 0 45.959 45.959"
   >
-    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
     <g
       id="SVGRepo_tracerCarrier"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+       strokeLinecap="round"
+      strokeLinejoin="round"
     ></g>
     <g id="SVGRepo_iconCarrier">
       {" "}
