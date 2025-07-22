@@ -13,7 +13,7 @@ export function Navbar({ onClick, onSortChange }: Props) {
 
   return (
     <nav className="flex relative z-50 items-stretch justify-between bg-white/10 backdrop-blur-sm backdrop-opacity-0 h-[90px] text-white px-3 md:px-48">
-      <a href="/idea-board" className="flex items-center pointer">
+      <a href="/idea-board/" className="flex items-center pointer">
         <IdeaLogo className="w-6 h-6 md:w-8 md:h-8" />
         <h1 className="text-md font-bold tracking-wider md:text-xl">
           IdeaBoard
@@ -45,7 +45,7 @@ export function Navbar({ onClick, onSortChange }: Props) {
         {showDropdown && (
           <ul
             role="menu"
-            
+
             className="absolute top-[70px] mr-3 md:mx-0 md:right-28 bg-white text-black shadow-md rounded-md text-xs md:text-sm min-w-6 md:min-w-[120px]"
           >
             <li
