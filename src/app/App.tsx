@@ -19,6 +19,7 @@ export function App() {
   const handleAddIdea = (idea: Idea) => {
     const allIdeas = [idea, ...ideas];
     const sortedIdeas = sortIdeas(allIdeas, sortMethod);
+
     setIdeas(sortedIdeas);
   };
 
@@ -36,6 +37,7 @@ export function App() {
             }
           : idea
       );
+
     setIdeas(editIdea);
     enqueueSnackbar("Idea updated successfully!", { variant: "success" });
   };
@@ -43,6 +45,7 @@ export function App() {
   const handleDeleteIdea = (id: string) => {
     const deleteIdea = (prevIdeas: Idea[]) =>
       prevIdeas.filter((idea) => idea.id !== id);
+
     setIdeas(deleteIdea);
     enqueueSnackbar("Idea deleted", { variant: "error" });
   };
@@ -81,7 +84,7 @@ export function App() {
             onSortChange={setSortMethod}
           />
           <main className="flex-1 p-4">
-            <div className="max-w-full md:mt-24 px-10 md:px-40 lg:px-52">
+            <div className="max-w-full md:mt-24 mt-60 px-10 md:px-40 lg:px-52">
               {ideas.length === 0 ? (
                 <div className="text-center md:mt-52">
                   <h2 className="text-xl md:text-3xl font-bold mt-32">

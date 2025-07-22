@@ -5,10 +5,13 @@ import clsx from "clsx";
 export const Textarea = ({
   value,
   label,
+  editLabel,
   error,
   autoResize = false,
   className,
   onChange,
+  onBlur,
+  onKeyDown,
   counterClassName,
   ...props
 }: TextareaProps) => {
@@ -24,7 +27,10 @@ export const Textarea = ({
   return (
     <div className="space-y-1">
       {label && (
-        <label htmlFor={props.id} className="text-sm font-medium text-black">
+        <label
+          htmlFor={props.id}
+          className={clsx("text-sm font-medium text-black", editLabel)}
+        >
           {label}
         </label>
       )}
@@ -39,6 +45,8 @@ export const Textarea = ({
           }
           onChange?.(e);
         }}
+        onBlur={onBlur}
+        onKeyDown={onKeyDown}
         className={clsx(
           "w-full px-3 py-2 border rounded-lg text-sm bg-white text-black focus:outline-none transition resize-none hover:border-gray-400 focus:ring-gray-400",
           error ? "border-red-600" : "border-gray-300 ",

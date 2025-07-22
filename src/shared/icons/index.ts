@@ -5,5 +5,4 @@ export { LinkedInLogo } from "./LinkedInLogo";
 export { GitHubLogo } from "./GitHubLogo";
 export { EmailLogo } from "./EmailLogo";
 export { CancelIcon } from "./CancelIcon";
-export { EditIcon } from "./EditIcon";
 export { DeleteIcon } from "./DeleteIcon";

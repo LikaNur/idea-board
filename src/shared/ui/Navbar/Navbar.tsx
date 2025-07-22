@@ -21,6 +21,7 @@ export function Navbar({ onClick, onSortChange }: Props) {
       </a>
       <div className="flex items-center gap-4">
         <Button
+          type="submit"
           aria-label="Create idea"
           onClick={() => {
             setShowDropdown(false);
@@ -32,6 +33,7 @@ export function Navbar({ onClick, onSortChange }: Props) {
           <span className="hidden sm:inline text-sm">New Idea</span>
         </Button>
         <Button
+          type="button"
           aria-label="Sort ideas"
           variant="outline"
           onClick={() => setShowDropdown(!showDropdown)}

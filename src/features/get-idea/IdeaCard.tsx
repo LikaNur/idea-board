@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { format } from "date-fns";
-import { DeleteIcon, EditIcon } from "@shared/icons";
+import { DeleteIcon } from "@shared/icons";
 import { EditIdea } from "@features/edit-idea";
 import { Button } from "@shared/ui";
 import type { Idea } from "@entities/index";
@@ -13,17 +13,8 @@ type Props = {
 
 export const IdeaCard = ({ idea, onEdit, onDelete }: Props) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [editedTitle, setEditedTitle] = useState(idea.title);
-  const [editedDescription, setEditedDescription] = useState(idea.description);
 
-  const handleSave = () => {
-    onEdit(idea.id, { title: editedTitle, description: editedDescription });
-    setIsEditing(false);
-  };
-
-  const handleCancel = () => {
-    setEditedTitle(idea.title);
-    setEditedDescription(idea.description);
+  const handleCancel = () => {;
     setIsEditing(false);
   };
 
@@ -42,25 +33,25 @@ export const IdeaCard = ({ idea, onEdit, onDelete }: Props) => {
       ) : (
         <>
           <div className="flex justify-between items-center">
-            <h2 className="text-lg font-bold pr-2">{idea.title}</h2>
-            <div className="flex gap-1 pl-2">
-              <Button
-                aria-label="Edit button"
-                className="hover:bg-inherit"
-                onClick={() => (isEditing ? handleSave() : setIsEditing(true))}
-              >
-                <EditIcon />
-              </Button>
-              <Button
-                aria-label="Delete button"
-                onClick={() => onDelete(idea.id)}
-                className="bg-[#d55151] rounded-lg p-1 hover:!bg-[#ef616d]"
-              >
-                <DeleteIcon />
-              </Button>
-            </div>
+            <h2
+              className="text-lg font-bold pr-2"
+              onClick={() => setIsEditing(true)}
+            >
+              {idea.title}
+            </h2>
+            <Button
+              type="reset"
+              aria-label="Delete button"
+              onClick={() => onDelete(idea.id)}
+              className="bg-[#d55151] rounded-lg p-1 hover:!bg-[#ef616d]"
+            >
+              <DeleteIcon />
+            </Button>
           </div>
-          <p className="text-sm text-wrap overflow-hidden text-clip pt-2">
+          <p
+            className="text-sm text-wrap overflow-hidden text-clip pt-2"
+            onClick={() => setIsEditing(true)} 
+          >
             {idea.description}
           </p>
         </>

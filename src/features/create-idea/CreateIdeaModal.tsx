@@ -5,6 +5,7 @@ import { useSnackbar } from "notistack";
 import { CancelIcon } from "@shared/icons";
 import { Button, Input, Textarea } from "@shared/ui";
 import type { Idea } from "@entities/idea/model/types";
+import { validateIdeaForm } from "@shared/helpers/validateIdea";
 
 type Props = {
   onClose: () => void;
@@ -23,18 +24,10 @@ export const CreateIdeaModal = ({ onClose, modalRef, onAddIdea }: Props) => {
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const newError: { title?: string; description?: string } = {};
+    const newErrors = validateIdeaForm(title, description);
 
-    if (!title.trim()) {
-      newError.title = "Title is required";
-    }
-    if (!description.trim()) {
-      newError.description = "Description is required";
-    } else if (description.length > 140) {
-      newError.description = "Description must be 140 characters or less";
-    }
-    if (Object.keys(newError).length > 0) {
-      setErrors(newError);
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
 
@@ -74,7 +67,7 @@ export const CreateIdeaModal = ({ onClose, modalRef, onAddIdea }: Props) => {
             <CancelIcon />
           </Button>
         </div>
-        <form method="POST" onSubmit={handleFormSubmit}>
+        <form onSubmit={handleFormSubmit}>
           <div className="mb-8">
             <label
               className="block text-md  text-black font-semibold mb-2"

@@ -1,6 +1,7 @@
 export type InputProps = {
   value: string;
   id?: string;
+  editLabel?: string;
   autoFocus?: boolean;
   placeholder?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -9,4 +10,6 @@ export type InputProps = {
   type?: string;
   label?: string;
   className?: string;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
+  onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
 };

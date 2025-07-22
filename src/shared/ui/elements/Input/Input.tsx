@@ -7,6 +7,9 @@ export const Input = ({
   autoFocus = false,
   placeholder = "",
   onChange,
+  onBlur,
+  onKeyDown,
+  editLabel,
   maxLength,
   error,
   label,
@@ -16,21 +19,24 @@ export const Input = ({
   return (
     <div className="space-y-1">
       {label && (
-        <label htmlFor={id} className="text-sm font-medium text-black">
+        <label
+          htmlFor={id}
+          className={clsx("text-sm font-medium text-black", editLabel)}
+        >
           {label}
         </label>
       )}
       <input
         value={value}
         onChange={onChange}
+        onBlur={onBlur}
+        onKeyDown={onKeyDown}
         maxLength={maxLength}
         type={type}
         id={id}
         className={clsx(
           "w-full p-3 border rounded-lg text-sm bg-white text-black hover:border-gray-400 focus:outline-none focus:ring-0 focus:ring-gray-400 transition",
-          error
-            ? "border-red-600"
-            : "border-gray-300",
+          error ? "border-red-600" : "border-gray-300",
           className
         )}
         autoFocus={autoFocus}
