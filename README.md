@@ -29,7 +29,6 @@ A minimal idea board app built with **React**, **TypeScript**, and **Vite**, whe
 - **Vite**
 - **Notistack** (snackbar notifications)
 - **uuid** (unique IDs)
-- **date-fns** (formatting timestamps)
 - **Tailwind CSS** (utility-first styling)
 
 ---
@@ -44,15 +43,22 @@ The codebase follows the **Feature-Sliced Design (FSD)** architecture. This stru
 
 1. **Clone the repo**
 
-git clone https://github.com/LikaNur/idea-board
+```bash
+git clone https://github.com/LikaNur/idea-board.git
 cd idea-board
-Install dependencies
+```
 
+2. **Install dependencies**
+
+```bash
 npm install
-Run the dev server
+```
 
-npm start
-Visit
+3. **Run the development server**
+
+```bash
+npm run dev
+```
 
 ---
 
@@ -60,12 +66,3 @@ Visit
 
 👉 [live demo](https://LikaNur.github.io/idea-board)
 
----
-
-## 📝 Comments & Assumptions
-
-No backend is used — ideas are persisted in localStorage
-
-Design is kept minimal and accessible
-
-Inline editing auto-focuses title when adding a new idea
