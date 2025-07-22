@@ -17,21 +17,33 @@ export function App() {
   ) as React.RefObject<HTMLDivElement>;
 
   const handleAddIdea = (idea: Idea) => {
-    setIdeas((prevIdeas) => [idea, ...prevIdeas]);
+    const allIdeas = [idea, ...ideas];
+    const sortedIdeas = sortIdeas(allIdeas, sortMethod);
+    setIdeas(sortedIdeas);
   };
 
   const handleEditIdea = (
     id: string,
     updated: { title: string; description: string }
   ) => {
-    setIdeas((prevIdeas) =>
-      prevIdeas.map((idea) => (idea.id === id ? { ...idea, ...updated } : idea))
-    );
+    const editIdea = (prevIdeas: Idea[]) =>
+      prevIdeas.map((idea) =>
+        idea.id === id
+          ? {
+              ...idea,
+              ...updated,
+              updatedAt: new Date(),
+            }
+          : idea
+      );
+    setIdeas(editIdea);
     enqueueSnackbar("Idea updated successfully!", { variant: "success" });
   };
 
   const handleDeleteIdea = (id: string) => {
-    setIdeas((prevIdeas) => prevIdeas.filter((idea) => idea.id !== id));
+    const deleteIdea = (prevIdeas: Idea[]) =>
+      prevIdeas.filter((idea) => idea.id !== id);
+    setIdeas(deleteIdea);
     enqueueSnackbar("Idea deleted", { variant: "error" });
   };
 
@@ -84,11 +96,11 @@ export function App() {
                   {sortedIdeas.map((idea) => (
                     <IdeaCard
                       key={idea.id}
-                      id={idea.id}
-                      title={idea.title}
-                      description={idea.description}
-                      createdAt={new Date(idea.createdAt)}
-                      updatedAt={new Date(idea.updatedAt)}
+                      idea={{
+                        ...idea,
+                        createdAt: new Date(idea.createdAt),
+                        updatedAt: new Date(idea.updatedAt),
+                      }}
                       onEdit={handleEditIdea}
                       onDelete={handleDeleteIdea}
                     />

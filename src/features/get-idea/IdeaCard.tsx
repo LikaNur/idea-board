@@ -3,38 +3,27 @@ import { format } from "date-fns";
 import { DeleteIcon, EditIcon } from "@shared/icons";
 import { EditIdea } from "@features/edit-idea";
 import { Button } from "@shared/ui";
+import type { Idea } from "@entities/index";
 
 type Props = {
-  id: string;
-  title: string;
-  description: string;
-  createdAt: Date;
-  updatedAt: Date;
+  idea: Idea;
   onEdit: (id: string, updated: { title: string; description: string }) => void;
   onDelete: (id: string) => void;
 };
 
-export const IdeaCard = ({
-  id,
-  title,
-  description,
-  createdAt,
-  updatedAt,
-  onEdit,
-  onDelete,
-}: Props) => {
+export const IdeaCard = ({ idea, onEdit, onDelete }: Props) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [editedTitle, setEditedTitle] = useState(title);
-  const [editedDescription, setEditedDescription] = useState(description);
+  const [editedTitle, setEditedTitle] = useState(idea.title);
+  const [editedDescription, setEditedDescription] = useState(idea.description);
 
   const handleSave = () => {
-    onEdit(id, { title: editedTitle, description: editedDescription });
+    onEdit(idea.id, { title: editedTitle, description: editedDescription });
     setIsEditing(false);
   };
 
   const handleCancel = () => {
-    setEditedTitle(title);
-    setEditedDescription(description);
+    setEditedTitle(idea.title);
+    setEditedDescription(idea.description);
     setIsEditing(false);
   };
 
@@ -42,18 +31,18 @@ export const IdeaCard = ({
     <div className="backdrop-blur-xl bg-white/10 text-white rounded-xl shadow-2xl p-4 space-y-3 transition-all 0.4s ease-in-out hover:shadow-lg hover:scale-105">
       {isEditing ? (
         <EditIdea
-          initialTitle={title}
-          initialDescription={description}
+          initialTitle={idea.title}
+          initialDescription={idea.description}
           onCancel={handleCancel}
           onSave={(updated) => {
-            onEdit(id, updated);
+            onEdit(idea.id, updated);
             setIsEditing(false);
           }}
         />
       ) : (
         <>
           <div className="flex justify-between items-center">
-            <h2 className="text-lg font-bold pr-2">{title}</h2>
+            <h2 className="text-lg font-bold pr-2">{idea.title}</h2>
             <div className="flex gap-1 pl-2">
               <Button
                 aria-label="Edit button"
@@ -64,7 +53,7 @@ export const IdeaCard = ({
               </Button>
               <Button
                 aria-label="Delete button"
-                onClick={() => onDelete(id)}
+                onClick={() => onDelete(idea.id)}
                 className="bg-[#d55151] rounded-lg p-1 hover:!bg-[#ef616d]"
               >
                 <DeleteIcon />
@@ -72,15 +61,15 @@ export const IdeaCard = ({
             </div>
           </div>
           <p className="text-sm text-wrap overflow-hidden text-clip pt-2">
-            {description}
+            {idea.description}
           </p>
         </>
       )}
       <div className="text-xs text-gray-300 pt-8">
-        {updatedAt.getTime() !== createdAt.getTime() ? (
-          <p>Updated: {format(updatedAt, "MMM dd, yyyy")}</p>
+        {idea.updatedAt.getTime() !== idea.createdAt.getTime() ? (
+          <p>Updated: {format(idea.updatedAt, "MMM dd, yyyy")}</p>
         ) : (
-          <p>Created: {format(createdAt, "MMM dd, yyyy")}</p>
+          <p>Created: {format(idea.createdAt, "MMM dd, yyyy")}</p>
         )}
       </div>
     </div>
