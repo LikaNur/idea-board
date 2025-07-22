@@ -18,17 +18,3 @@ body {
   margin: 0;
   padding: 0;
 }
-
-main {
-  background-image: url("/public/bg-hero.png");
-  background-size: 590px auto;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-@media (max-width: 768px) {
-  main {
-    background-size: 130vw auto;
-    background-position: center;
-  }
-}

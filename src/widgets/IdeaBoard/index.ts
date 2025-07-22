@@ -1,1 +1,0 @@
-export { IdeaBoard } from "./IdeaBoard";

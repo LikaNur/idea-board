@@ -1,4 +1,4 @@
-export default interface IdeaCardProps {
+export type IdeaCardProps = {
   id: string;
   title: string;
   description: string;
@@ -6,4 +6,4 @@ export default interface IdeaCardProps {
   updatedAt: Date;
   onEdit: (id: string, updated: { title: string; description: string }) => void;
   onDelete: (id: string) => void;
-}
+};
