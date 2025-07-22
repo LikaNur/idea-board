@@ -31,4 +31,3 @@ export const EditIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default EditIcon;

@@ -1,6 +1,13 @@
 import { useState } from "react";
-import type { EditIdeaProps } from "./EditIdeaTypes";
 import { Button, Input, Textarea } from "@shared/ui";
+
+type Props = {
+  initialTitle: string;
+  initialDescription: string;
+  maxLength?: number;
+  onCancel: () => void;
+  onSave: (updated: { title: string; description: string }) => void;
+};
 
 export const EditIdea = ({
   initialTitle,
@@ -8,7 +15,7 @@ export const EditIdea = ({
   maxLength = 140,
   onCancel,
   onSave,
-}: EditIdeaProps) => {
+}: Props) => {
   const [title, setTitle] = useState(initialTitle);
   const [description, setDescription] = useState(initialDescription);
 
@@ -53,5 +60,3 @@ export const EditIdea = ({
     </>
   );
 };
-
-export default EditIdea;

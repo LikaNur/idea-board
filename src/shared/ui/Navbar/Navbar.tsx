@@ -1,9 +1,14 @@
 import { AddIcon, IdeaLogo, SortIcon } from "@shared/icons";
 import { useState } from "react";
 import { Button } from "../elements/Button/Button";
-import type { NavbarProps } from "./NavbarTypes";
+import type { SortMethod } from "@features/sort-idea";
 
-export default function Navbar({ onClick, onSortChange }: NavbarProps) {
+type Props = {
+  onClick: () => void;
+  onSortChange: (method: SortMethod) => void;
+};
+
+export function Navbar({ onClick, onSortChange }: Props) {
   const [showDropdown, setShowDropdown] = useState(false);
 
   return (

@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { SnackbarProvider } from "notistack";
-import CreateIdeaModal from "./CreateIdeaModal";
+import { CreateIdeaModal } from "./CreateIdeaModal";
 
 test("renders and submits the idea form", () => {
   const onClose = jest.fn();

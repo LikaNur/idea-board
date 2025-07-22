@@ -20,4 +20,3 @@ export const AddIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default AddIcon;

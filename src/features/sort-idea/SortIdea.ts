@@ -22,11 +22,6 @@ export const sortIdeas = (ideas: Idea[], method: SortMethod): Idea[] => {
         (a, b) =>
           new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       );
-      break;
-    default:
-      throw new Error(`Unknown sort method: ${method}`);
   }
   return sorted;
 };
-
-export default sortIdeas;

@@ -25,4 +25,3 @@ export const CancelIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default CancelIcon;

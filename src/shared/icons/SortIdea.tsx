@@ -35,4 +35,3 @@ export const SortIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default SortIcon;

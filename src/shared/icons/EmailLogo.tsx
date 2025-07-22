@@ -26,4 +26,3 @@ export const EmailLogo = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default EmailLogo;

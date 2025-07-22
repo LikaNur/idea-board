@@ -30,4 +30,3 @@ export const LinkedInLogo = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default LinkedInLogo;

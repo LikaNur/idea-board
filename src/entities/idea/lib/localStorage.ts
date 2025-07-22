@@ -1,4 +1,4 @@
-import type Idea from "@entities/idea/model/types";
+import type { Idea } from "../model/types";
 
 const STORAGE_KEY = "ideas";
 
@@ -25,11 +25,4 @@ export const updateIdea = (updatedIdea: Idea) => {
   );
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedIdeas));
-};
-
-export default {
-  getIdeas,
-  saveIdea,
-  clearIdeas,
-  updateIdea,
 };

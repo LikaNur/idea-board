@@ -1,7 +1,7 @@
 import { EmailLogo, GitHubLogo, LinkedInLogo } from "@shared/icons";
 import { SocialIconLink } from "../elements";
 
-export default function Footer() {
+export function Footer() {
   const socialLinks = [
     {
       href: "mailto:nurmatova.mlk@gmail.com",

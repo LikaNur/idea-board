@@ -1,9 +1,18 @@
 import { useState } from "react";
 import { format } from "date-fns";
-import type IdeaCardProps from "./IdeaCardTypes";
 import { DeleteIcon, EditIcon } from "@shared/icons";
 import { EditIdea } from "@features/edit-idea";
 import { Button } from "@shared/ui";
+
+type Props = {
+  id: string;
+  title: string;
+  description: string;
+  createdAt: Date;
+  updatedAt: Date;
+  onEdit: (id: string, updated: { title: string; description: string }) => void;
+  onDelete: (id: string) => void;
+};
 
 export const IdeaCard = ({
   id,
@@ -13,7 +22,7 @@ export const IdeaCard = ({
   updatedAt,
   onEdit,
   onDelete,
-}: IdeaCardProps) => {
+}: Props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(title);
   const [editedDescription, setEditedDescription] = useState(description);
@@ -77,5 +86,3 @@ export const IdeaCard = ({
     </div>
   );
 };
-
-export default IdeaCard;

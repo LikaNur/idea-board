@@ -9,4 +9,3 @@ export const IdeaLogo = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default IdeaLogo;

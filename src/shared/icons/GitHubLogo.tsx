@@ -20,4 +20,3 @@ export const GitHubLogo = ({ className }: { className?: string }) => (
 );
 
 
-export default GitHubLogo;

@@ -2,15 +2,17 @@ import { saveIdea } from "@entities/index";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useSnackbar } from "notistack";
-import type { CreateIdeaProps } from "./CreateIdeaTypes";
 import { CancelIcon } from "@shared/icons";
 import { Button, Input, Textarea } from "@shared/ui";
+import type { Idea } from "@entities/idea/model/types";
 
-export const CreateIdeaModal = ({
-  onClose,
-  modalRef,
-  onAddIdea,
-}: CreateIdeaProps) => {
+type Props = {
+  onClose: () => void;
+  modalRef: React.RefObject<HTMLDivElement>;
+  onAddIdea: (idea: Idea) => void;
+};
+
+export const CreateIdeaModal = ({ onClose, modalRef, onAddIdea }: Props) => {
   const { enqueueSnackbar } = useSnackbar();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -122,5 +124,3 @@ export const CreateIdeaModal = ({
     </div>
   );
 };
-
-export default CreateIdeaModal;
