@@ -43,9 +43,15 @@ export function Navbar({ onClick, onSortChange }: Props) {
         </Button>
 
         {showDropdown && (
-          <ul className="absolute top-[70px] mr-3 md:mx-0 md:right-28 bg-white text-black shadow-md rounded-md text-xs md:text-sm min-w-6 md:min-w-[120px]">
+          <ul
+            role="menu"
+            
+            className="absolute top-[70px] mr-3 md:mx-0 md:right-28 bg-white text-black shadow-md rounded-md text-xs md:text-sm min-w-6 md:min-w-[120px]"
+          >
             <li
               className="hover:bg-gray-100 px-4 py-2 cursor-pointer rounded-md"
+              role="menuitem"
+              tabIndex={0}
               onClick={() => {
                 onSortChange("title-asc");
                 setShowDropdown(false);
@@ -55,6 +61,8 @@ export function Navbar({ onClick, onSortChange }: Props) {
             </li>
             <li
               className="hover:bg-gray-100 px-4 py-2 cursor-pointer"
+              role="menuitem"
+              tabIndex={1}
               onClick={() => {
                 onSortChange("title-desc");
                 setShowDropdown(false);
@@ -64,6 +72,8 @@ export function Navbar({ onClick, onSortChange }: Props) {
             </li>
             <li
               className="hover:bg-gray-100 px-4 py-2 cursor-pointer"
+              role="menuitem"
+              tabIndex={2}
               onClick={() => {
                 onSortChange("createdAt-asc");
                 setShowDropdown(false);
@@ -73,6 +83,8 @@ export function Navbar({ onClick, onSortChange }: Props) {
             </li>
             <li
               className="hover:bg-gray-100 px-4 py-2 cursor-pointer rounded-md"
+              role="menuitem"
+              tabIndex={3}
               onClick={() => {
                 onSortChange("createdAt-desc");
                 setShowDropdown(false);

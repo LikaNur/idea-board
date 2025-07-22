@@ -76,6 +76,7 @@ export function App() {
       anchorOrigin={{ vertical: "top", horizontal: "center" }}
       autoHideDuration={1000}
       preventDuplicate
+      aria-live="assertive"
     >
       <div className="min-h-screen bg-idea-gradient">
         <div className="flex flex-col min-h-screen">

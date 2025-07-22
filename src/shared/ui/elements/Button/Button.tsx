@@ -7,7 +7,8 @@ export const Button = ({
   className = "",
   ...props
 }: ButtonProps) => {
-  const base = "text-md text-white font-medium transition focus:outline-none";
+  const base =
+    "text-md text-white font-medium transition focus:outline-none focus:outline focus:outline-1 focus:outline-blue-400";
 
   const variants: Record<string, string> = {
     primary: "bg-[#0D81A3] px-4 py-2 rounded-md hover:bg-[#66AEC5]",
